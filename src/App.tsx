@@ -43,7 +43,7 @@ function App() {
   return (
     <main className="h-screen w-screen flex flex-col justify-center items-center gap-4">
       <Finder city={city} setCity={setCity} coords={coords} setCoords={setCoords}/>
-        {city.postalCode ? <Card city={city} setCity={setCity} coords={coords} setCoords={setCoords} weatherData={weatherData} setWeatherData={setWeatherData} date={new Date()}/> : <p>Search a city</p>}
+        {city.postalCode ? <Card city={city} setCity={setCity} coords={coords} setCoords={setCoords} weatherData={weatherData} setWeatherData={setWeatherData} date={new Date()}/> : ''}
       {weatherData?.meta?.updated_at && <TimeDiff updatedAt={weatherData.meta.updated_at} />}
     </main>
   );
