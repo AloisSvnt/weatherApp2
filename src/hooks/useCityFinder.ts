@@ -1,18 +1,21 @@
 import { useState, useEffect, useCallback } from "react";
-import { CityZIP } from "../types/CityZIP";
+import { CityZIP } from "../types/City/CityZIP";
 import { useCitySearch } from "../hooks/useCitySearch";
 
 export const useCityFinder = (cityName: string) => {
   const { debouncedSearchCity, data, error } = useCitySearch();
   const [result, setResult] = useState<CityZIP[]>([]);
+  const [isSelected, setIsSelected] = useState(false);
 
-  const memoizedSearchCity = useCallback(debouncedSearchCity, [debouncedSearchCity]);
+  const memoizedSearchCity = useCallback(debouncedSearchCity, [
+    debouncedSearchCity,
+  ]);
 
   useEffect(() => {
-    if (cityName.length >= 3) {
+    if (!isSelected && cityName.length >= 3) {
       memoizedSearchCity(cityName);
     }
-  }, [cityName, memoizedSearchCity]);
+  }, [cityName, memoizedSearchCity, isSelected]);
 
   useEffect(() => {
     if (data) {
@@ -24,9 +27,21 @@ export const useCityFinder = (cityName: string) => {
     setResult([]);
   };
 
+  const selectCity = () => {
+    setIsSelected(true);
+    clearResults();
+  };
+
+  const resetSelection = () => {
+    setIsSelected(false);
+  };
+
   return {
     result,
     clearResults,
     error,
+    selectCity,
+    resetSelection,
+    isSelected,
   };
 };

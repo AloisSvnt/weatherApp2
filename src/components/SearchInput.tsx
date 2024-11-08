@@ -1,13 +1,19 @@
 import React from 'react';
-import { CityProps } from "../types/CityProps";
+import { CityProps } from "../types/City/CityProps";
 
+interface SearchInputProps extends CityProps {
+  onInputChange?: () => void;
+}
 
-export const SearchInput: React.FC<CityProps> = ({ city, setCity }) => {
-
+export const SearchInput: React.FC<SearchInputProps> = ({ 
+  city, 
+  setCity, 
+  onInputChange 
+}) => {
   const setAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCity({ name: e.target.value, postalCode: '' });
+    onInputChange?.();
   };
-
 
   return (
     <div className="max-w-xs w-full">
