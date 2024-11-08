@@ -8,7 +8,7 @@ import weatherNames  from '../config/WeatherNames';
 
 import { WeatherIcon } from './WeatherIcon';
 
-export const Card: React.FC<CityProps & CoordsProps & WeatherProps & DateProps > = ({city, coords, weatherData, setWeatherData, date}) => {
+export const Card: React.FC<CityProps & CoordsProps & WeatherProps & DateProps > = ({city, weatherData, date}) => {
 
   const [seeMore, setSeeMore] = useState(false);
 

@@ -6,7 +6,7 @@ import { CoordsProps } from "../types/Coords/CoordsProps";
 import { useCityFinder } from "../hooks/useCityFinder";
 import { useCityToCoords } from "../hooks/useCityToCoords";
 
-export const Finder: React.FC<CityProps & CoordsProps> = ({ city, setCity, coords, setCoords }) => {
+export const Finder: React.FC<CityProps & CoordsProps> = ({ city, setCity, setCoords }) => {
   const { result, error, selectCity, resetSelection } = useCityFinder(city.name);
   const { coordsResult, getCoords, clearCoordsResults } = useCityToCoords();
 

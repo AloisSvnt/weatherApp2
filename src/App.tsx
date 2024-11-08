@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { CityData } from './types/City/CityData';
 import { CoordsData } from './types/Coords/CoordsData';
 import { WeatherData } from './types/Weather/WeatherData';
