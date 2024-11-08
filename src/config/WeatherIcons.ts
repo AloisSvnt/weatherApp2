@@ -77,8 +77,7 @@ const weatherIcons: { [key: string]: string } = {
   snowandthunder_night: 'wi:night-snow-thunderstorm',
   heavysnowandthunder_day: 'wi:day-snow-thunderstorm',
   heavysnowandthunder_ight: 'wi:night-snow-thunderstorm',
-  fog_night: 'wi:day-fog',
-  fog_day: 'wi:night-fog',
+  fog: 'wi:fog',
 };
 
 export default weatherIcons;
