@@ -15,10 +15,8 @@ export const Card: React.FC<CityProps & CoordsProps & WeatherProps & DateProps >
   if (!weatherData) {
     return <div>Loading...</div>;
   }
-  // console.log(weatherData);
   const getCurrentWeather = getCurrentData(weatherData.timeseries);
   const dataInstant = getCurrentWeather.data.instant.details;
-  console.log(getCurrentWeather);
 
   return (
     <div className="card bg-base-100 w-full max-w-xs shadow-xl">
